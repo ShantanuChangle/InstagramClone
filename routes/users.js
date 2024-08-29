@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const plm = require('passport-local-mongoose');
 
-mongoose.connect("mongodb://0.0.0.0/InstagramClone");
+mongoose.connect("mongodb+srv://shantanuchangle2:Shantanuchangle2@instagramclone.t4cme.mongodb.net/?retryWrites=true&w=majority&appName=InstagramClone");
 
 const userSchema = mongoose.Schema({
   username: String,

@@ -3,6 +3,7 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+const MongoStore = require('connect-mongo');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
@@ -18,7 +19,12 @@ app.set('view engine', 'ejs');
 app.use(expressSession({
   resave:false,
   saveUninitialized:false,
-  secret:"Hello"
+  secret:"Hello",
+  cookie:{maxAge: 1 * 60 * 60 * 1000},
+  store: MongoStore.create({
+    mongoUrl:'mongodb+srv://shantanuchangle2:Shantanuchangle2@instagramclone.t4cme.mongodb.net/?retryWrites=true&w=majority&appName=InstagramClone',
+    autoRemove:'disabled'
+  })
 }));
 
 app.use(passport.initialize());
