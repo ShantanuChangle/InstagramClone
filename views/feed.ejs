@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Bootstrap demo</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="../stylesheets/feed.css" />
+  </head>
+  <body>
+    <div id="main">
+      <% include ./partials/sideNavBar %>
+
+      <div id="center">
+        <div id="stories">
+          <img src="../images/PicsArt_09-18-08.36.46.jpg" alt="" />
+          <img src="../images/PicsArt_09-18-08.36.46.jpg" alt="" />
+          <img src="../images/PicsArt_09-18-08.36.46.jpg" alt="" />
+          <img src="../images/PicsArt_09-18-08.36.46.jpg" alt="" />
+          <img src="../images/PicsArt_09-18-08.36.46.jpg" alt="" />
+          <img src="../images/PicsArt_09-18-08.36.46.jpg" alt="" />
+          <img src="../images/PicsArt_09-18-08.36.46.jpg" alt="" />
+          <img src="../images/PicsArt_09-18-08.36.46.jpg" alt="" />
+          <img src="../images/PicsArt_09-18-08.36.46.jpg" alt="" />
+          <img src="../images/PicsArt_09-18-08.36.46.jpg" alt="" />
+          <img src="../images/PicsArt_09-18-08.36.46.jpg" alt="" />
+        </div>
+        <div id="posts">
+          <% allpost.forEach((post) =>{ %>
+
+          <!-- Modal -->
+          <div
+            class="modal fade"
+            id="exampleModal"
+            tabindex="-1"
+            style="background-color: #111"
+            aria-labelledby="exampleModalLabel"
+            aria-hidden="true"
+          >
+            <div class="modal-dialog modal-dialog-centered">
+              <div
+                class="modal-content"
+                style="
+                  background-color: #111;
+                  border: 1px solid rgba(255, 255, 255, 0.367);
+                "
+              >
+                <div class="modal-header" style="background-color: #111">
+                  <h1
+                    class="modal-title fs-5"
+                    id="exampleModalLabel"
+                    style="color: white"
+                  >
+                    Comments
+                  </h1>
+                  <button
+                    type="button"
+                    class="btn-close"
+                    data-bs-dismiss="modal"
+                    aria-label="Close"
+                    style="background-color: #ffffffca"
+                  ></button>
+                </div>
+                <form
+                  class="w-100"
+                  action="/addComment/<%= post._id %>"
+                  method="post"
+                >
+                  <div class="modal-body">
+                    <input
+                      type="text"
+                      name="comment"
+                      placeholder="Write Here"
+                      class="w-100"
+                      style="
+                        background-color: #111;
+                        border: 1.5px solid rgba(90, 90, 90, 0.774);
+                        padding: 10px;
+                        color: aliceblue;
+                      "
+                    />
+                  </div>
+                  <div class="modal-footer">
+                    <button
+                      type="button"
+                      class="btn btn-secondary"
+                      data-bs-dismiss="modal"
+                    >
+                      Close
+                    </button>
+                    <input
+                      type="submit"
+                      class="btn btn-primary"
+                      value="Add Comment"
+                    />
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+
+          <div class="post">
+            <div id="ptop">
+              <div id="ptop1">
+                <div id="ptimg">
+                  <img src="./uploads/<%= post.owner.image %>" alt="" />
+                </div>
+                <a href="/profile/<%= post.owner._id %>"
+                  ><h4><%= post.owner.username %></h4></a
+                >
+              </div>
+              <div id="ptop2">
+                <i class="ri-more-fill"></i>
+              </div>
+            </div>
+            <div id="pcenter">
+              <!-- <small>media</small> -->
+              <img src="./uploads/<%= post.image %>" alt="" />
+            </div>
+            <div id="pbottom">
+              <div id="icons">
+                <button onclick="like(event,'<%= post.owner._id %>')" ><i class="ri-heart-line"></i></button>
+                <h3 id="postlike" style="position: absolute; top: 95%; left: 1%; font-size: 19px;" >0 likes</h3>
+                <!-- <i  id="redcolor" class="ri-heart-fill"></i> -->
+                <!-- <a id="postLikes" href="/postLikes/<%= post._id %>"
+                  ><%= post.likes.length %> likes</a
+                > -->
+                <button
+                  type="button"
+                  data-bs-toggle="modal"
+                  data-bs-target="#exampleModal"
+                >
+                  <i id="comment" class="ri-chat-3-line"></i>
+                </button>
+                <i class="ri-send-plane-fill"></i>
+                <i id="ione" class="ri-bookmark-line"></i>
+              </div>
+              
+              <div id="caption" style="margin-top: 30px;">
+                <h5><%= post.owner.username %></h5>
+                <p><%= post.caption %></p>
+              </div>
+            </div>
+            <h3 id="viewcomments">View all comments</h3>
+            <div id="commentcard">
+              <% post.comments.forEach(comment=>{ %>
+              <div class="singlecomment">
+                <div id="userimg">
+                  <img
+                    style="
+                      height: 30px;
+                      width: 30px;
+                      object-fit: cover;
+                      border-radius: 50%;
+                      margin-right: 5px;
+                    "
+                    src="./uploads/<%= comment.user.image %>"
+                    alt=""
+                  />
+                  <small><%= comment.user.username %></small>
+                </div>
+                <p><%= comment.data %></p>
+                <a
+                  href="/deleteComment/<%= comment._id %>"
+                  style="
+                    position: absolute;
+                    right: 8%;
+                    margin-top: 18px;
+                    font-size: 20px;
+                    color: white;
+                    text-decoration: none;
+                  "
+                  ><i
+                    class="ri-delete-bin-6-line"
+                  ></i
+                ></a>
+              </div>
+              <% }) %>
+              <button class="btn btn-primary">Close</button>
+            </div>
+          </div>
+          <% }) %>
+        </div>
+      </div>
+      <div id="right">
+        <div id="account">
+          <img src="./uploads/<%= user.image %>" alt="" />
+          <div id="a1">
+            <a href="/profile" style="text-decoration: none"
+              ><h3><span><%= user.username %></span></h3></a
+            >
+            <h3><%= user.name %></h3>
+          </div>
+          <a href="#">switch</a>
+        </div>
+        <div id="suggestions">
+          <h2>Suggested for you</h2>
+          <h2><span>See all</span></h2>
+        </div>
+        <div id="suggestedPeople">
+          <div id="imgsp">
+            <img
+              src="../images/Stuti-Changle-author-On-the-heaven.png"
+              alt=""
+            />
+          </div>
+          <div id="a1">
+            <h3><span>Stuti_Changle</span></h3>
+            <h3>Stuti Changle</h3>
+          </div>
+          <a href="#">follow</a>
+        </div>
+        <div id="suggestedPeople">
+          <div id="imgsp">
+            <img
+              src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+              alt=""
+            />
+          </div>
+          <div id="a1">
+            <h3><span>Crystal._.Kunwar</span></h3>
+            <h3>Crystal Kunwar</h3>
+          </div>
+          <a href="#">follow</a>
+        </div>
+      </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.6.5/axios.min.js" integrity="sha512-TjBzDQIDnc6pWyeM1bhMnDxtWH0QpOXMcVooglXrali/Tj7W569/wd4E8EDjk1CwOAOPSJon1VfcEt1BI4xIrA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+      crossorigin="anonymous"
+    ></script>
+    <script>
+      // var redcolor = document.querySelector("#redcolor");
+      // // var postLikes = document.querySelector("#postLikes");
+
+      // let counter = 1;
+      // redcolor.addEventListener("click", (dets) => {
+      //   if (counter == 1) {
+      //     redcolor.style.opacity = 0;
+      //     counter--;
+      //   } else {
+      //     redcolor.style.opacity = 1;
+      //     counter++;
+      //   }
+      // });
+
+      async function like(event, userId){
+        var response = await axios.get(`/postLikes/${userId}`)
+
+        document.getElementById('#postlikes').innerHTML = `likes ${response.data.likesCount}`
+      }
+
+      var viewcomments = document.querySelector("#viewcomments");
+      var commentcard = document.querySelector("#commentcard");
+      var close = document.querySelector("#commentcard>button");
+
+      viewcomments.addEventListener("click", function () {
+        commentcard.style.scale = 1;
+      });
+
+      close.addEventListener("click", function () {
+        commentcard.style.scale = 0;
+      });
+    </script>
+  </body>
+</html>

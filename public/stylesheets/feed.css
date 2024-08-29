@@ -1,0 +1,393 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    width: 100vw;
+    font-family: gilroy;
+    overflow-x: hidden;
+    background-color: black;
+}
+
+body::-webkit-scrollbar{
+    display: none;
+}
+
+#main{
+    width: 100vw;
+    position: relative;
+}
+
+#center{
+    padding-top: 10px;
+    position: relative;
+    left: 30%;
+    width: 46%;
+}
+
+#stories{
+    height: 10vh;
+    overflow: auto;
+    display: flex;
+    align-items: center;
+    padding-left: 25px;
+    padding-top: 2px;
+    gap: 26px;
+    height: 13vh;
+    width: 100%;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.533);
+    /* background-color:#ffffff8f; */
+}
+
+#stories>img{
+    margin-left: 10px;
+    flex-shrink: 0;
+    height: 70%;
+    border-radius: 50%;
+    border: 3px solid #DD0160;
+    padding: 2px;
+    /* width: 60%; */
+}
+
+
+#stories::-webkit-scrollbar{
+    display: none;
+}
+
+#posts{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.post{
+    position: relative;
+    margin: 5px;
+    height: 85vh;
+    width: 55%;
+    /* background-color: #ffffff42; */
+    border-bottom: 1px solid #ffffff54;
+}
+
+.post>#ptop{
+    position: relative;
+    padding-top: 10px;
+    display: flex;
+    gap: 54%;
+}
+
+#ptop1{
+    /* margin-left: 0px; */
+    /* background-color: #DD0160; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+}
+
+#ptop1>a>h4{
+    font-size: 17px;
+    margin-top: 10px;
+    color: #fff;
+}
+
+#ptop1>a{
+    text-decoration: none;
+}
+
+.post>#ptop>#ptop1>#ptimg{
+    height: 50px;
+    width: 50px;
+}
+
+.post>#ptop>#ptop1>#ptimg>img{
+    height: inherit;
+    width: inherit;
+    border-radius: 50%;
+}
+
+#ptop2>i{
+    position: absolute;
+    top: 25%;
+    right: 0%;
+    font-size: 30px;
+    color: #fff;
+}
+
+#pcenter{
+    /* display: flex;
+    align-items: center;
+    justify-content: center; */
+    margin-top: 10px;
+    height: 72%;
+    width: 100%;
+    background-color: #111;
+    color: #fff;
+}
+
+#pcenter>img{
+    height: 100%;
+    width: 100%;
+    border: 1px solid #ffffffa1;
+}
+
+#pbottom{
+    height: 17%;
+    width: 100%;
+}
+
+#viewcomments{
+    position: absolute;
+    bottom: 0.5%;
+    left: 2%;
+    font-size: 21px;
+    cursor: pointer;
+    color: #585656cf;
+}
+
+#commentcard{
+    position: absolute;
+    bottom: 5%;
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+    width: 20vw;
+    height: 40vh;
+    background-color: #322f2f;
+    padding: 10px;
+    scale: 0;
+    overflow: auto;
+}
+
+#commentcard::-webkit-scrollbar{
+    display: none;
+}
+
+#commentcard>button{
+    position: absolute;
+    right: 5%;
+    bottom: 5%;
+}
+
+#commentcard p{
+    margin-left: 40px;
+    color: white;
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.singlecomment{
+    flex-shrink: 0;
+    /* height: 20%; */
+    height: fit-content;
+    background-color: #6c6969;
+    display: flex;
+    padding: 10px;
+    margin-bottom: 10px;
+    flex-direction: column;
+    border-radius: 10px;
+}
+
+#userimg>small{
+    color: white;
+}
+
+
+#icons{
+    position: relative;
+    top: 2%;
+    left: -1%;
+    margin-bottom: 5px;
+    margin-left: 11px;
+    font-size: 27px;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+#redcolor{
+    position: absolute;
+    text-decoration: none;
+    left: -.20%;
+    top: -7%;
+    font-size: 30px;
+    color: #FF3040;
+    z-index: 9999;
+    opacity: 0;
+}
+
+#icons>#ione{
+    position: absolute;
+    right: -1%;
+}
+
+#icons>i{
+    cursor: pointer;
+}
+
+#icons>button{
+    background-color: black;
+    border: none;
+    color: white;
+}
+
+/* #icons>#button>#comment{
+    font-size: 50px;
+    font-weight: 800;
+} */
+
+#pbottom>a{
+    text-decoration: none;
+    font-size: 18px;
+    color: #fff;
+    margin-left: 10px;
+}
+
+#caption>h5{
+    margin-left: 10px;
+    margin-bottom: -0.5%;
+    color: #fff;
+    font-size: 15px;
+    font-weight: 600;
+}
+
+#caption>p{
+    margin-left: 11px;
+    margin-top: 5px;
+    font-size: 15px;
+    font-weight: 400;
+    color: #ffffffcb;
+}
+
+#right{
+    position: fixed;
+    right: 2%;
+    top: 1%;
+    width: 20%;
+    height: 70vh;
+    /* background-color: #ffffff61; */
+}
+
+#account{
+    position: relative;
+    padding-top: 35px;
+    padding-left: 10px;
+    display: flex;
+    gap: 10px;
+}
+
+#account>img{
+    margin-top: 11px;
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+}
+
+#account>#a1{
+    margin-top: 5px;
+}
+
+#account>#a1>h3{
+    line-height: .8vw;
+    font-size: 16px;
+    font-weight: 400;
+    color: rgba(255, 255, 255, 0.889);
+}
+
+#account>#a1>a>h3>span{
+    font-size: 18px;
+    font-weight: 600;
+    color: #fff;
+}
+
+#account>a{
+    position: absolute;
+    right: 7%;
+    top: 52%;
+    text-decoration: none;
+    color: #1c71e0;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+#suggestions{
+    margin-top: 30px;
+    margin-left: -10px;
+    /* margin: 10px; */
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    gap: 23%;
+}
+
+#suggestions>h2{
+    font-size: 17px;
+    font-weight: 700;
+    color: #ffffff76;
+}
+
+#suggestions>h2>span{
+    font-size: 16px;
+    font-weight: 500;
+    color: #fff;
+}
+
+#suggestedPeople{
+    position: relative;
+    padding-top: 20px;
+    padding-left: 10px;
+    display: flex;
+    gap: 10px;
+}
+
+#imgsp{
+    height: 50px;
+    width: 50px;
+    overflow: hidden;
+}
+
+#suggestedPeople>#imgsp>img{
+    /* height: 50px; */
+    height: inherit;
+    width: inherit;
+    border-radius: 50%;
+}
+
+#suggestedPeople>#a1{
+    margin-top: 5px;
+}
+
+#suggestedPeople>#a1>h3{
+    line-height: .8vw;
+    font-size: 16px;
+    font-weight: 400;
+    color: rgba(255, 255, 255, 0.889);
+}
+
+#suggestedPeople>#a1>h3>span{
+    font-weight: 600;
+    color: #fff;
+}
+
+#suggestedPeople>a{
+    position: absolute;
+    right: 7%;
+    top: 52%;
+    text-decoration: none;
+    color: #1c71e0;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+/* #postLikes{
+    position: absolute;
+    top: 90%;
+    left: 1%;
+    text-decoration: none;
+    font-size: 19px;
+} */

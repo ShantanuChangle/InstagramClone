@@ -1,0 +1,53 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    width: 100vw;
+    font-family: gilroy;
+    overflow-x: hidden;
+    background-color: black;
+}
+
+#main{
+    display: flex;
+    height: 100vh;
+    width: 100vw;
+}
+
+#right{
+    display: flex;
+    align-items: center;
+    padding-top: 100px;
+    /* justify-content: center; */
+    flex-direction: column;
+    gap: 20px;
+    position: relative;
+    left: 43%;
+    top: 20%;
+    height: 60%;
+    width: 35%;
+    border: 1px solid #ffffffa7;
+    /* background-color: black; */
+}
+
+#right>h1{
+    color: #fff;
+    text-transform: uppercase;
+    font-size: 30px;
+    font-weight: 600;
+}
+
+#right>form{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-top: 60px;
+}
+
+#right>form>input{
+    padding: 5px 20px;
+}

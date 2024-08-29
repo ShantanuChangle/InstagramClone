@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Bootstrap demo</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="../stylesheets/profile.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@4.0.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div id="main">
+      <% include ./partials/sideNavBar %>
+
+      <div id="centerPart">
+        <div id="top">
+          <div id="info">
+            <div id="infoleft">
+              <div id="ilimg">
+                <img src="./uploads/<%= user.image %>" alt="" />
+              </div>
+            </div>
+            <div id="inforight">
+              <div id="infoRightTop">
+                <h1><%= user.username %></h1>
+                <button><a href="/edit/<%= user._id %>" style="text-decoration: none; color: #fff;">Edit profile</a></button>
+                <button><a href="/delete/<%= user._id %>" style="text-decoration: none; color: #fff;">Delete profile</a></button>
+                <i class="ri-settings-3-line"></i>
+              </div>
+              <div id="infoRightMiddle">
+                <h6>50 posts</h6>
+                <h6>1000 followers</h6>
+                <h6>750 following</h6>
+              </div>
+              <div id="infoRightBottom">
+                <h5><%= user.name %></h5>
+              </div>
+            </div>
+            
+          </div>
+          <div id="stories">
+            <img src="../images/PicsArt_09-18-08.36.46.jpg" alt="">
+          </div>
+        </div>
+        <div id="middle">
+          <h3><i class="ri-grid-line"></i>&nbsp;&nbsp;Posts</h3>
+          <h3><i class="ri-film-line"></i>&nbsp;&nbsp;Reels</h3>
+          <h3><i class="ri-bookmark-line"></i>&nbsp;&nbsp;Saved</h3>
+          <h3><i class="ri-account-pin-box-line"></i>&nbsp;&nbsp;Tagged</h3>
+        </div>
+        <div id="bottom">
+          <div class="img">
+            <img src="./uploads/<%= user.image %>" alt="">
+          </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

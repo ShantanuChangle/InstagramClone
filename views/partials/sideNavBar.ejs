@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@4.0.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      html,
+      body {
+        width: 100vw;
+        font-family: gilroy;
+      }
+
+      #sidebar {
+        position: fixed;
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+        font-size: 20px;
+        padding: 20px;
+        padding-left: 30px;
+        height: 100vh;
+        width: 20vw;
+        background-color: #111;
+      }
+
+      #sidebar > h4 {
+        font-size: 40px;
+        font-weight: 600;
+        color: #fff;
+        padding-top: 30px;
+        margin-bottom: 40px;
+      }
+
+      #sidebar > a {
+        text-decoration: none;
+        font-size: 17px;
+        color: #fff;
+        font-weight: 350;
+        scale: 1;
+        padding: 5px;
+        padding-left: 2px;
+        z-index: 99;
+      }
+      #sidebar > a > i {
+        font-size: 25px;
+        margin-right: 15px;
+      }
+
+      #btmsidebar {
+        position: absolute;
+        bottom: 5%;
+      }
+
+      #sidebar > #btmsidebar > h5 > i {
+        font-size: 25px;
+        margin-right: 5px;
+      }
+
+      #btmsidebar > h5 {
+        font-size: 18px;
+        padding-top: 20px;
+        color: #ffffff6f;
+        cursor: pointer;
+      }
+
+      #sidebar > a:hover {
+        /* scale: 1.05;
+        transition: .2s all ease-in-out; */
+        background-color: #ffffff25;
+        border-radius: 10px;
+      }
+
+      #btmsidebar > h5:hover {
+        color: #fff;
+      }
+
+      #card {
+        display: flex;
+        /* align-items: center; */
+        /* padding-left: 30px; */
+        justify-content: center;
+        flex-direction: column;
+        gap: 27px;
+        position: absolute;
+        bottom: 10%;
+        height: 45vh;
+        width: 15vw;
+        border-radius: 20px;
+        background-color: #262626;
+        opacity: 0;
+        text-align: left;
+        border: 1px solid rgba(98, 97, 97, 0.34);
+      }
+
+      #card > a {
+        position: relative;
+        text-decoration: none;
+        color: #fff;
+        font-size: 15px;
+        font-weight: 400;
+        padding-left: 30px;
+      }
+
+      #Thickline {
+        position: relative;
+        left: 0;
+        height: 5px;
+        width: 100%;
+        background-color: #ffffff3d;
+      }
+
+      #line {
+        position: relative;
+        left: 0;
+        height: 1px;
+        width: 100%;
+        background-color: #ffffff3d;
+      }
+
+
+    </style>
+  </head>
+  <body>
+    <div id="sidebar">
+      <h4>Instagram</h4>
+      <a href="/feed"><i class="ri-home-5-line"></i>Home</a>
+      <a href="/search"><i class="ri-search-line"></i>Search</a>
+      <a href="#"><i class="ri-compass-3-fill"></i>Explore</a>
+      <a href="#"><i class="ri-film-line"></i>Reels</a>
+      <a href="/messages"><i class="ri-message-2-line"></i>Messages</a>
+      <a href="#"><i class="ri-heart-line"></i>Notifications</a>
+      <a href="/createPost"><i class="ri-add-box-line"></i>Create</a>
+      <a href="/profile"><i class="ri-user-3-line"></i>Profile</a>
+
+      <div id="btmsidebar">
+        <h5><i class="ri-at-line"></i>&nbsp;Threads</h5>
+        <h5 id="more"><i class="ri-menu-line"></i>&nbsp;More</h5>
+      </div>
+
+      <div id="card">
+        <a href="#"
+          ><i class="ri-settings-5-line"></i>&nbsp;&nbsp;&nbsp;Settings</a
+        >
+        <a href="#"
+          ><i class="ri-image-2-line"></i>&nbsp;&nbsp;&nbsp;Your activity</a
+        >
+        <a href="#"><i class="ri-bookmark-line"></i>&nbsp;&nbsp;&nbsp;Saved</a>
+        <a href="#"
+          ><i class="ri-moon-line"></i>&nbsp;&nbsp;&nbsp;Switch appearence</a
+        >
+        <a href="#"
+          ><i class="ri-error-warning-line"></i>&nbsp;&nbsp;&nbsp;Report a
+          problem</a
+        >
+        <div id="Thickline"></div>
+        <a href="#">Switch accounts</a>
+        <div id="line"></div>
+        <a href="/logout">Log out</a>
+      </div>
+    </div>
+
+    <script>
+      var more = document.querySelector("#more");
+      var card = document.querySelector("#card");
+      var Options = document.querySelector("#sidebar>a");
+
+      var a = 0;
+      more.addEventListener("click", function () {
+        if(a == 0){
+          card.style.opacity = 1;
+          card.style.zIndex = "9999";
+          a++;
+        }
+        else{
+          card.style.opacity = 0;
+          card.style.zIndex = "0";
+          a--;
+        }
+      });
+    </script>
+  </body>
+</html>

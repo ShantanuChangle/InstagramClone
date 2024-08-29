@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Bootstrap demo</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
+    <link
+    href="https://cdn.jsdelivr.net/npm/remixicon@4.1.0/fonts/remixicon.css"
+    rel="stylesheet"/>
+
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html,body{
+            width: 100vw;
+        }
+
+        .user:hover{
+            background-color: #c1bbbb61;
+            margin-right: 15px;
+            border-radius: 10px;
+        }
+        
+
+        /* #conversationArea{
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding-left: 10px;
+            padding-right: 10px;
+        } */
+
+    </style>
+  </head>
+  <body>
+    <div id="main" style="display: flex;">
+        <div class="peopleArea" style="height: 100vh; width: 25vw; background-color: rgb(79, 79, 79);">
+            <input type="text" placeholder="Search" id="search" style="padding: 5px 50px; border: none; border-radius: 20px; margin: 20px;">
+            <i style="position: absolute; top: 2.6%; left: 14%;" class="ri-search-line"></i>
+            <a style="position: relative; text-decoration: none; color: #fff; font-size: 25px; margin-left: 20%; top: 0.5%;" href="/feed"><i class="ri-close-line"></i></a>
+            <% users.forEach((users)=>{ %>
+                <div class="user d-flex gap-2"      style="margin-left: 20px; padding: 5px;">
+                    <img src="./uploads/<%= users.image %>" alt="" style="height: 50px; width: 50px; object-fit: cover; object-position: center; border-radius: 50%;">
+                    <div id="username" class="d-flex flex-column">
+
+                        <a href="/messages/<%= users._id %>" style="text-decoration: none;"><h1 style="font-size: 20px; color: #fff;"><%= users.username %></h1></a>
+
+                        <h2 style="font-size: 17px; margin-top: -5px; color: #fff;"><%= users.name %></h2>
+                    </div>
+                </div>
+            <% }) %>
+        </div>
+        <div style="height: 100vh; width: 75%; background-color: #111;" id="conversationArea">
+            <div class="msg">
+                random message
+            </div>
+            <div class="d-flex gap-2">
+                <input type="text" class="form-control">
+                <button class="btn btn-success">send message</button>
+            </div>
+        </div>
+    </div>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+      crossorigin="anonymous"
+    ></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+      var socket = io();
+
+    //   document.querySelector("button").addEventListener("click", (event)=>{
+    //     socket.emit("message", document.querySelector("input").value)
+
+    //     socket.on("message", msg=>{
+    //         var h1 = document.createElement('h1')
+    //         h1.textContent = msg
+    //         document.querySelector("body").appendChild(h1)
+    //     })
+    //   })
+    </script>
+  </body>
+</html>
